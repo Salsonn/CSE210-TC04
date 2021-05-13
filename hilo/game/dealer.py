@@ -1,3 +1,5 @@
+import random
+
 # Code for the dealer class goes here
 
 list = {
@@ -17,5 +19,17 @@ list = {
 }
 
 class Dealer:
+
+    global list
+
     def __init__(self):
         self.cards = list
+        self.random_card()
+        self.score = 0
+
+    def random_card(self):
+        self.given_card = random.choice(list[random.randint(1, 4)])
+        print(self.given_card)
+        return self.given_card
+
+Dealer()
