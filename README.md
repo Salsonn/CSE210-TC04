@@ -35,4 +35,5 @@ root                    (project root folder)
 
 ## Authors
 ---
+Caleb Salyards - sal18014@byui.edu
 * TODO: Add your names and emails here
