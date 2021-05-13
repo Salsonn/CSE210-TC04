@@ -1,7 +1,5 @@
 import random
 
-# Code for the dealer class goes here
-
 list = {
     1: ['A ♣', 'A ♥', 'A ♦', 'A ♠'],
     2: ['2 ♣', '2 ♥', '2 ♦', '2 ♠'],
@@ -28,8 +26,44 @@ class Dealer:
         self.score = 0
 
     def random_card(self):
-        self.given_card = random.choice(list[random.randint(1, 4)])
+
+        # Chooses a random card from self.cards
+        self.given_card = random.choice(list[random.randint(1, 13)])
+
+        # Finds the value of the found card
+        self.card_value(self.given_card)
+
+        # Removes selected card from the deck
+        self.remove_card(self.given_card)
+
         print(self.given_card)
-        return self.given_card
+        # If this feat. is somehow attained, this will only trigger
+        # If the player gets all 52 cards correct somehow
+        if self.cards == []:
+            # Returns a string if all cards correctly guessed
+            return 'You Win!'
+        else:
+            # Otherwise, it just returns the card and its value
+            return self.given_card
+    
+    def remove_card(self, given_card):
+        # Iterates through each value in the list
+        for i in list:
+
+            # This checks if the card was found
+            if given_card in list[i]:
+
+                # If the card was found, it grabs its index value and pops it off the list
+                index_value = list[i].index(given_card)
+                list[i].pop(index_value)
+
+    def card_value(self, given_card):
+
+        # Iterates through the list to find the given card
+        for i in list:
+
+            # Once the card is found, it finds the card value and returns it
+            if given_card in list[i]:
+                return i
 
 Dealer()
