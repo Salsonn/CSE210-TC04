@@ -33,7 +33,7 @@ class Dealer:
         self.given_card = random.choice(list[random.randint(1, 13)])
 
         # Finds the value of the found card
-        self.card_value(self.given_card)
+        cards_value = self.card_value(self.given_card)
 
         # Removes selected card from the deck
         self.remove_card(self.given_card)
@@ -46,7 +46,7 @@ class Dealer:
             return 'You Win!'
         else:
             # Otherwise, it just returns the card and its value
-            return self.given_card
+            return self.given_card, cards_value
     
     def remove_card(self, given_card):
         # Iterates through each value in the list
