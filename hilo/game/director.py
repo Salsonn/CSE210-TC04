@@ -4,11 +4,9 @@ class Director:
     # The Director behaves as the person overseeing the game, commands the dealer,
     # gets user input, keeps score, and determines when the game is over.
     def __init__(self):
-<<<<<<< Updated upstream
         # Starts the Dealer and prepares the game.
 
         self.dealer = Dealer()
-=======
         '''Setting up the appropriate variables and initializing dealer'''
         self.dealer = Dealer()
         self.keep_playing = True
@@ -72,4 +70,3 @@ class Director:
     def display_future(self):
         '''Reveals the next card'''
         print(f'The card is: {self.second_card}')
->>>>>>> Stashed changes
