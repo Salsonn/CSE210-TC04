@@ -35,4 +35,4 @@ root                    (project root folder)
 
 ## Authors
 ---
-* TODO: Add your names and emails here
+* Josh Thieme (thi17001@byui.edu)
