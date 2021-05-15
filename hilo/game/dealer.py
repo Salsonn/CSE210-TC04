@@ -3,19 +3,19 @@
 import random
 
 list = {
-    1: ['A ♣', 'A ♥', 'A ♦', 'A ♠'],
-    2: ['2 ♣', '2 ♥', '2 ♦', '2 ♠'],
-    3: ['3 ♣', '3 ♥', '3 ♦', '3 ♠'],
-    4: ['4 ♣', '4 ♥', '4 ♦', '4 ♠'],
-    5: ['5 ♣', '5 ♥', '5 ♦', '5 ♠'],
-    6: ['6 ♣', '6 ♥', '6 ♦', '6 ♠'],
-    7: ['7 ♣', '7 ♥', '7 ♦', '7 ♠'],
-    8: ['8 ♣', '8 ♥', '8 ♦', '8 ♠'],
-    9: ['9 ♣', '9 ♥', '9 ♦', '9 ♠'],
-    10: ['10 ♣', '10 ♥', '10 ♦', '10 ♠'],
-    11: ['J ♣', 'J ♥', 'J ♦', 'J ♠'],
-    12: ['Q ♣', 'Q ♥', 'Q ♦', 'Q ♠'],
-    13: ['K ♣', 'K ♥', 'K ♦', 'K ♠']
+    1: ['A \033[47m\033[30m♣\033[m', 'A \033[31m\033[47m♥\033[m', 'A \033[31m\033[47m♦\033[m', 'A \033[47m\033[30m♠\033[m'],
+    2: ['2 \033[47m\033[30m♣\033[m', '2 \033[31m\033[47m♥\033[m', '2 \033[31m\033[47m♦\033[m', '2 \033[47m\033[30m♠\033[m'],
+    3: ['3 \033[47m\033[30m♣\033[m', '3 \033[31m\033[47m♥\033[m', '3 \033[31m\033[47m♦\033[m', '3 \033[47m\033[30m♠\033[m'],
+    4: ['4 \033[47m\033[30m♣\033[m', '4 \033[31m\033[47m♥\033[m', '4 \033[31m\033[47m♦\033[m', '4 \033[47m\033[30m♠\033[m'],
+    5: ['5 \033[47m\033[30m♣\033[m', '5 \033[31m\033[47m♥\033[m', '5 \033[31m\033[47m♦\033[m', '5 \033[47m\033[30m♠\033[m'],
+    6: ['6 \033[47m\033[30m♣\033[m', '6 \033[31m\033[47m♥\033[m', '6 \033[31m\033[47m♦\033[m', '6 \033[47m\033[30m♠\033[m'],
+    7: ['7 \033[47m\033[30m♣\033[m', '7 \033[31m\033[47m♥\033[m', '7 \033[31m\033[47m♦\033[m', '7 \033[47m\033[30m♠\033[m'],
+    8: ['8 \033[47m\033[30m♣\033[m', '8 \033[31m\033[47m♥\033[m', '8 \033[31m\033[47m♦\033[m', '8 \033[47m\033[30m♠\033[m'],
+    9: ['9 \033[47m\033[30m♣\033[m', '9 \033[31m\033[47m♥\033[m', '9 \033[31m\033[47m♦\033[m', '9 \033[47m\033[30m♠\033[m'],
+    9: ['10 \033[47m\033[30m♣\033[m', '10 \033[31m\033[47m♥\033[m', '10 \033[31m\033[47m♦\033[m', '10 \033[47m\033[30m♠\033[m'],
+    11: ['J \033[47m\033[30m♣\033[m', 'J \033[31m\033[47m♥\033[m', 'J \033[31m\033[47m♦\033[m', 'J \033[47m\033[30m♠\033[m'],
+    12: ['Q \033[47m\033[30m♣\033[m', 'Q \033[31m\033[47m♥\033[m', 'Q \033[31m\033[47m♦\033[m', 'Q \033[47m\033[30m♠\033[m'],
+    13: ['K \033[47m\033[30m♣\033[m', 'K \033[31m\033[47m♥\033[m', 'K \033[31m\033[47m♦\033[m', 'K \033[47m\033[30m♠\033[m']
 }
 
 class Dealer:
@@ -23,8 +23,10 @@ class Dealer:
     global list
 
     def __init__(self):
+        # Container for card data and appearance
         self.cards = list
-        self.score = 0
+        # Sets the starting score for the game
+        self.score = 300
 
     def random_card(self):
 
@@ -32,7 +34,7 @@ class Dealer:
         self.given_card = random.choice(list[random.randint(1, 13)])
 
         # Finds the value of the found card
-        self.card_value(self.given_card)
+        cards_value = self.card_value(self.given_card)
 
         # Removes selected card from the deck
         self.remove_card(self.given_card)
@@ -45,7 +47,7 @@ class Dealer:
             quit()
         else:
             # Otherwise, it just returns the card and its value
-            return self.given_card
+            return self.given_card, cards_value
     
     def remove_card(self, given_card):
         # Iterates through each value in the list
@@ -64,7 +66,6 @@ class Dealer:
         for i in list:
             # Once the card is found, it finds the card value and returns it
             if given_card in list[i]:
-                print(i)
                 return i
         print("Error: Unable to recall card value.")
         return 0
