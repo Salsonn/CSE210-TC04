@@ -20,14 +20,14 @@ class Director:
 
     def do_updates(self):
         '''Update the score and quit if score is 0'''
-        if self.first_card_value < self.second_card_value:
+        if self.first_card_value <= self.second_card_value:
             if self.player_guess == "h":
                 self.dealer.score += 100
                 print("\033[33m    Good guess!\033[m")
             else:
                 self.dealer.score -= 75
                 print("\033[31m    Uh oh!\033[m")
-        elif self.first_card_value > self.second_card_value:
+        elif self.first_card_value >= self.second_card_value:
             if self.player_guess == "l":
                 self.dealer.score += 100
                 print("\033[33m    Good guess!\033[m")
