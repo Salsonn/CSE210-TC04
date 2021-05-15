@@ -38,5 +38,5 @@ root                    (project root folder)
 * Josh Thieme (thi17001@byui.edu)
 * Caleb Salyards (sal18014@byui.edu)
 * Austin Oldroyd (old20004@byui.edu)
-
+* Tyler Caldron (cal16026@byui.edu)
 * TODO: Add your names and emails here
