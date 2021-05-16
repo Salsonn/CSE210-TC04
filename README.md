@@ -39,4 +39,3 @@ root                    (project root folder)
 * Caleb Salyards (sal18014@byui.edu)
 * Austin Oldroyd (old20004@byui.edu)
 * Tyler Caldron (cal16026@byui.edu)
-* TODO: Add your names and emails here
