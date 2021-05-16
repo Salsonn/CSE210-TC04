@@ -43,7 +43,8 @@ class Dealer:
         # If the player gets all 52 cards correct somehow
         if self.cards == []:
             # Returns a string if all cards correctly guessed
-            print('No more cards left. You Win!')
+            victory=['No more cards left. You Win!','You won! Wait, how did you do that?','I bet you feel prety clever huh? There are no more cards.']
+            print(random.choice(victory))
             quit()
         else:
             # Otherwise, it just returns the card and its value
